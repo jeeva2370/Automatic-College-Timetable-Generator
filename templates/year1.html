@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Year - 1</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+            {%if department=='cse'%}
+             ComputerScience and Engineering
+            {%elif department=='mech'%}
+            Mechanical Engineering
+            {%elif department=='ece'%}
+             Electronics and Communication Engineering
+            {%elif department=='eee'%}
+             Electrical and Electronics Engineering
+            {%elif department=='civil'%}
+             Civil Engineering
+            {%endif%}
+            </p>
+        <br><p class="fs-title h3 text-capitalize">
+            <div class="row">
+
+            {%if sem == 'odd'%}
+
+            <div class="col">
+                <h4>Semester : 1</h4>
+            </div>
+            <div class="col">
+                <h4 class="float-right">Year : 1</h4>
+            </div>
+            {%else%}
+            <div class="col">
+                <h4>Semester : 2</h4>
+            </div>
+            <div class="col">
+                 <h4 class="float-right">Year : 1</h4>
+            </div>
+            {%endif%}
+        </div>
+        </p><br>
+        <div class="">
+    <table class="table">
+        <thead style="background-color: var(--white);">
+            <th>days\Time</th>
+            {%for i in time%}
+            <th class="text-center">{{i['t']}}</th>
+            {%endfor%}
+        </thead>
+        <tbody>
+            {% for i in y1%}
+            <tr>
+                 {% if loop.index == 1 %}
+                <td class="text-center">Day1</td>
+                {% endif %}
+            {% if loop.index == 2 %}
+                <td class="text-center">Day2</td>
+                {% endif %}
+            {% if loop.index == 3 %}
+                <td class="text-center">Day3</td>
+                {% endif %}
+            {% if loop.index == 4 %}
+                <td class="text-center">Day4</td>
+                {% endif %}
+            {% if loop.index == 5 %}
+                <td class="text-center">Day5</td>
+                {% endif %}
+                {%for j in i%}
+
+                    {%if loop.index ==3%}
+                <td class="text-center" style="padding-left: 40px !important;padding-right: 40px !important;">break</td>
+                {%endif%}
+                {%if loop.index ==5%}
+                <td class="text-center" style="padding-left: 40px !important;padding-right: 40px !important;">Lunch break</td>
+                {%endif%}
+                <td class="text-center"><b>{{j['course']}}</b><br>
+                        {{j['staff']}}</td>
+                    {%endfor%}
+
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</div>
+<div class="container">
+    <table class="table table-bordered" style="border: 4px solid !important;" >
+        <thead>
+            <th>Subjects Name</th>
+            <th>Credits</th>
+            <th>Hours</th>
+            <th>Staff Name</th>
+        </thead>
+        <tbody>
+                {% for j in d1 %}
+                    <tr>
+                <td>{{ j['course'] }}</td>
+                <td>{{ j['credits'] }}</td>
+                <td>{{ j['contact_hours'] }}</td>
+                <td>{{ j['staff'] }}</td>
+                    </tr>
+                {% endfor %}
+        </tbody>
+    </table>
+    </div><br>
+<br><p class="fs-title h3 text-capitalize">
+    <div class="row">
+
+    {%if sem == 'odd'%}
+
+    <div class="col">
+    <h4>Semester : 3</h4>
+</div>
+<div class="col">
+<h4 class="float-right">Year : 2</h4></div>
+    {%else%}
+    <div class="col">
+        <h4>Semester : 4</h4>
+    </div>
+    <div class="col">
+    <h4 class="float-right">Year : 2</h4></div>
+    {%endif%}
+</div>
+</p><br>
+<div class="">
+    <table class="table">
+        <thead style="background-color: var(--white);">
+        <th>days\Time</th>
+            {%for i in time%}
+            <th class="text-center">{{i['t']}}</th>
+            {%endfor%}
+        </thead>
+        <tbody>
+            {% for i in y2%}
+            <tr>
+             {% if loop.index == 1 %}
+                <td class="text-center">Day1</td>
+                {% endif %}
+            {% if loop.index == 2 %}
+                <td class="text-center">Day2</td>
+                {% endif %}
+            {% if loop.index == 3 %}
+                <td class="text-center">Day3</td>
+                {% endif %}
+            {% if loop.index == 4 %}
+                <td class="text-center">Day4</td>
+                {% endif %}
+            {% if loop.index == 5 %}
+                <td class="text-center">Day5</td>
+                {% endif %}
+                {%for j in i%}{%if loop.index ==3%}
+                <td style="padding-left: 40px !important;padding-right: 40px !important;">break</td>
+                {%endif%}
+                {%if loop.index ==5%}
+                <td style="padding-left: 40px !important;padding-right: 40px !important;">Lunch break</td>
+                {%endif%}
+                <td><b>{{j['course']}}</b><br>
+                        {{j['staff']}}</td>
+                    {%endfor%}
+
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table></div>
+        <div class="container">
+    <table class="table table-bordered" style="border: 4px solid !important;" >
+        <thead>
+            <th>Subjects Name</th>
+            <th>Credits</th>
+            <th>Hours</th>
+            <th>Staff Name</th>
+        </thead>
+        <tbody>
+                {% for j in d2 %}
+                    <tr>
+                <td>{{ j['course'] }}</td>
+                <td>{{ j['credits'] }}</td>
+                <td>{{ j['contact_hours'] }}</td>
+                <td>{{ j['staff'] }}</td>
+                    </tr>
+                {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    <br><p class="fs-title h3 text-capitalize">
+        <div class="row">
+
+        {%if sem == 'odd'%}
+
+        <div class="col">
+        <h4>Semester : 5</h4>
+    </div>
+    <div class="col">
+    <h4 class="float-right">Year : 3</h4></div>
+        {%else%}
+        <div class="col">
+            <h4>Semester : 6</h4>
+        </div>
+        <div class="col">
+        <h4 class="float-right">Year : 3</h4></div>
+        {%endif%}
+    </div>
+    </p><br>
+    <div class="">
+    <table class="table ">
+        <thead style="background-color: var(--white);">
+        <th>days\Time</th>
+            {%for i in time%}
+            <th class="text-center">{{i['t']}}</th>
+            {%endfor%}
+        </thead>
+        <tbody>
+            {% for i in y3%}
+            <tr>
+             {% if loop.index == 1 %}
+                <td class="text-center">Day1</td>
+                {% endif %}
+            {% if loop.index == 2 %}
+                <td class="text-center">Day2</td>
+                {% endif %}
+            {% if loop.index == 3 %}
+                <td class="text-center">Day3</td>
+                {% endif %}
+            {% if loop.index == 4 %}
+                <td class="text-center">Day4</td>
+                {% endif %}
+            {% if loop.index == 5 %}
+                <td class="text-center">Day5</td>
+                {% endif %}
+                {%for j in i%}{%if loop.index ==3%}
+                <td style="padding-left: 40px !important;padding-right: 40px !important;">break</td>
+                {%endif%}
+                {%if loop.index ==5%}
+                <td style="padding-left: 40px !important;padding-right: 40px !important;">Lunch break</td>
+                {%endif%}
+                <td><b>{{j['course']}}</b><br>
+                        {{j['staff']}}</td>
+                    {%endfor%}
+
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table></div>
+        <div class="container">
+    <table class="table table-bordered" style="border: 4px solid !important;" >
+        <thead>
+            <th>Subjects Name</th>
+            <th>Credits</th>
+            <th>Hours</th>
+            <th>Staff Name</th>
+        </thead>
+        <tbody>
+                {% for j in d3 %}
+                    <tr>
+                <td>{{ j['course'] }}</td>
+                <td>{{ j['credits'] }}</td>
+                <td>{{ j['contact_hours'] }}</td>
+                <td>{{ j['staff'] }}</td>
+                    </tr>
+                {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+</body>
+</html>

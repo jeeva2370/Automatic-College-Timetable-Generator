@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2>Home Page</h2>
+<p>{{status}}</p>
+
+<div class="row">
+    <div class="col">
+        <img src="{{url_for('static',filename='table.png')}}" alt="">
+    </div>
+    <div class="col container">
+<form action="" method="post" class="align-center" style="padding-top: 5px !important;">
+    <span>{{msg}}</span>
+    <div class="form-group p-3 ">
+<label for="department">select the department :</label> 
+<select name="department" id="department" class="" required>
+    <option value="none" selected disabled hidden> </option>
+    <option value="cse">ComputerScience and Engineering</option>
+    <option value="mech">Mechanical Engineering</option>
+    <option value="ece">Electronics and comunication Engineering </option>
+    <option value="eee">Electrical and Electronics Engineering</option>
+    <option value="civil">Civil Engineering</option>
+</select>
+</div>
+
+<div class="p-3">
+<label  class="radio-inline" for="even"><input type="radio" name="semester" id="even" value="even" >&nbsp; Even Semesters</label>
+<label class="radio-inline" for="odd"><input type="radio" name="semester" id="odd" value="odd" >&nbsp; Odd Semesters</label>
+</div>
+<div class="float-right">
+<input class="btn btn-outline-primary" type="submit" value="submit">
+</div>
+</form>
+</div>
+</div>
+{% endblock %}

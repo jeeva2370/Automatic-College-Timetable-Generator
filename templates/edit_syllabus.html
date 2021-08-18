@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block title %}Details{% endblock %}
+
+{% block content %}
+<p  class="text-center font-italic h1 " style="width: 1150px !important;">Edit Database</p>
+<div class="container" style="width: 1200px !important;">
+<form action='' method='post'>
+    <div class="row">
+        <div class="col">
+    <div class="form-group">
+    <label>Year:</label>
+    <input class='form-control' type="text" name="year" value="{{datas.year}}"   required>
+</div>
+    <div class="form-group">
+    <label>Semester:</label>
+    <input class='form-control'type="text" name="semester" value="{{datas.semester}}"  required>
+</div>
+    <div class="form-group">
+    <label>Department:</label>
+    <input class='form-control' type="text" name="department" value="{{datas.department}}"  required>
+</div></div>
+<div class="col">
+    <div class="form-group">
+    <label>Course:</label>
+    <input class='form-control' type="text" name="course" value="{{datas.course}}"   required>
+</div>
+    <div class="form-group">
+    <label>Staff:</label>
+    <input class='form-control' type="text" name="staff" value="{{datas.staff}}"   required>
+</div></div>
+</div>
+    <input class="btn btn-success btn-toolbar" type='submit' value='Update'>
+</form></div>
+{% endblock %}

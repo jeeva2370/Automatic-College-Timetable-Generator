@@ -1,0 +1,339 @@
+{% extends 'layout.html' %}
+
+{% block title %}Details{% endblock %}
+
+{% block content %}
+<p class="text-center font-italic h1 ">
+
+{%if department=='cse'%}
+ ComputerScience and Engineering
+{%elif department=='mech'%}
+Mechanical Engineering
+{%elif department=='ece'%}
+ Electronics and Communication Engineering
+{%elif department=='eee'%}
+ Electrical and Electronics Engineering
+{%elif department=='civil'%}
+ Civil Engineering
+{%endif%}
+</p>
+<br>
+{%if y1 != ''%}
+{%if semester == 'odd'%}
+<br><h4>Semester : 1</h4> 
+{%else%}
+<br><h4>Semester: 2</h4>
+{%endif%}
+<br>
+<table class="table">
+    <thead class="thead-light">
+        <th>Course</th>
+        <th>Staff</th>
+    </thead>
+    <tbody>
+{%for i in y1%}
+<tr>
+<td>{{i['course']}}</td> <td>{{i['staff']}}</td>
+</tr>
+{%endfor%}
+</tbody>
+</table>
+{%endif%}
+{%if y2 != ''%}
+{%if semester == 'odd'%}
+<br><h4>Semester: 3</h4>
+{%else%}
+<br><h4>Semester: 4</h4>
+{%endif%}
+<br>
+<table class="table">
+    <thead class="thead-light">
+        <th>Course</th>
+        <th>Staff</th>
+    </thead>
+    <tbody>
+{%for i in y2%}
+<tr>
+<td>{{i['course']}}</td> <td>{{i['staff']}}</td>
+</tr>
+{%endfor%}
+</tbody>
+</table>
+{%endif%}
+{%if y3 != ''%}
+{%if semester == 'odd'%}
+<br><h4>Semester: 5</h4>
+{%else%}
+<br><h4>Semester: 6</h4>
+{%endif%}
+<br>
+<table class="table">
+    <thead class="thead-light">
+        <th>Course</th>
+        <th>Staff</th>
+    </thead>
+    <tbody>
+{%for i in y3%}
+<tr>
+<td>{{i['course']}}</td> <td>{{i['staff']}}</td>
+</tr>
+{%endfor%}
+</tbody>
+</table>
+{%endif%}
+{%if y4 != ''%}
+{%if semester == 'odd'%}
+<br><h4>Semester: 7</h4>
+{%endif%}
+<br>
+<table class="table" id='y4'>
+    <thead class="thead-light">
+        <th>Course</th>
+        <th>Staff</th>
+    </thead>
+    <tbody>
+{%for i in y4%}
+<tr>
+<td>{{i['course']}}</td> <td>{{i['staff']}}</td>
+</tr>
+{%endfor%}
+</tbody>
+</table>
+{%endif%}
+
+<form action="" method="post">
+    <fieldset id=pe-1>
+        <legend>Professional Elective I</legend>
+        <div class="row">
+        <div class="col">
+        <label for="professional-elective-I" class="p-3">Course :</label>
+        <select name="professional-elective-I" id="professional-elective-I" required>
+            <option value="none" selected disabled hidden> </option>
+            {%for i in pe1%}
+            <option value="{{i['course']}}">{{i['course']}}</option>
+            {%endfor%}
+        </select></div>
+        <div class="col">
+        <label for="staff_pe1" class="p-3" >Staff :</label>
+        <select name="staff_pe1" id="staff" required>
+            <option value="none" selected disabled hidden> </option>
+            {%for i in staffs%}
+            <option value="{{i['staff']}}">{{i['staff']}}</option>
+            {%endfor%}
+        </select></div></div>
+    </fieldset>
+   
+<fieldset id="oe-1">
+    <legend>Open Elective - I</legend>
+    <div class="row">
+        <div class="col">
+    <label for="open-elective-1" class="p-3">Course :</label>
+        <select name="open-elective-I" id="open-elective-I" required>
+            <option value="none" selected disabled hidden> </option>
+            {%for i in op1%}
+            <option value="{{i['course']}}">{{i['course']}}</option>
+            {%endfor%}
+        </select></div>
+        <div class="col">
+        <label for="staff_op1" class="p-3">Staff :</label>
+    <select name="staff_op1" id="staff_op1" required>
+            <option value="none" selected disabled hidden> </option>
+            {%for i in staffs%}
+            <option value="{{i['staff']}}">{{i['staff']}}</option>
+            {%endfor%}
+        </select></div></div>
+    </fieldset>
+<fieldset id='op-1' class="scheduler-border" >
+    <legend class="scheduler-border">Open Elective - I</legend>
+    <div class="row">
+        <div class="col">
+    <label for="open-elective-1" class="p-3">Course :</label>
+    <input type="text" name="open-elective-1" id="open-elective-1"></div>
+    <div class="col">
+    <label for="staff-op1" class="p-3" >Staff :</label>
+    <select name="staff-op1" id="staff-op1" required>
+        <option value="none" selected disabled hidden> </option>
+        {%for i in staffs%}
+        <option value="{{i['staff']}}">{{i['staff']}}</option>
+        {%endfor%}
+    </select></div>
+</div>
+</fieldset>
+<fieldset id='op-2'>
+    <legend>Open Elective - II</legend>
+    <div class="row">
+        <div class="col">
+    <label for="open-elective-2" class="p-3">Course :</label>
+    <input type="text" name="open-elective-2" id="open-elective-2"></div>
+    <div class="col">
+    <label for="staff-op2" class="p-3">Staff :</label>
+    <select name="staff-op2" id="staff-op2" required>
+        <option value="none" selected disabled hidden> </option>
+        {%for i in staffs%}
+        <option value="{{i['staff']}}">{{i['staff']}}</option>
+        {%endfor%}
+    </select></div></div>
+</fieldset>
+<fieldset id='oe-2'>
+    <legend>Open Elective - II</legend>
+    <div class="row">
+        <div class="col">
+    <label for="open-elective-II" class="p-3">Course :</label>
+        <select name="open-elective-II" id="open-elective-II" required>
+            <option value="none" selected disabled hidden> </option>
+            {%for i in op2%}
+            <option value="{{i['course']}}">{{i['course']}}</option>
+            {%endfor%}
+        </select></div>
+        <div class="col">
+        <label for="staff_op2" class="p-3">Staff :</label>
+       <select name="staff_op2" id="staff_op2" required>
+            <option value="none" selected disabled hidden> </option>
+            {%for i in staffs%}
+            <option value="{{i['staff']}}">{{i['staff']}}</option>
+            {%endfor%}
+        </select></div></div>
+    </fieldset>
+<fieldset id='pe-2'>
+    <legend>Professional Elective - II</legend>
+    <div class="row">
+        <div class="col">
+    <label for="professional-elective-II" class="p-3">Course :</label>
+        <select name="professional-elective-II" id="professional-elective-II" required>
+            <option value="none" selected disabled hidden> </option>
+            {%for i in pe2%}
+            <option value="{{i['course']}}">{{i['course']}}</option>
+            {%endfor%}
+        </select></div>
+        <div class="col">
+        <label for="staff-pe2" class="p-3">Staff :</label>
+      <select name="staff_pe2" id="staff_pe2" required>
+            <option value="none" selected disabled hidden> </option>
+            {%for i in staffs%}
+            <option value="{{i['staff']}}">{{i['staff']}}</option>
+            {%endfor%}
+        </select></div></div>
+    </fieldset>
+<fieldset id='pe-3'>
+    <legend>Professional Elective - III</legend>
+    <div class="row">
+        <div class="col">
+    <label for="professional-elective-III" class="p-3">Course :</label>
+        <select name="professional-elective-III" id="professional-elective-III" required>
+            <option value="none" selected disabled hidden> </option>
+            {%for i in pe3%}
+            <option value="{{i['course']}}">{{i['course']}}</option>
+            {%endfor%}
+        </select> </div>
+        <div class="col">
+        <label for="staff-pe3" class="p-3">Staff :</label>
+        <select name="staff_pe3" id="staff_pe3" required>
+            <option value="none" selected disabled hidden> </option>
+            {%for i in staffs%}
+            <option value="{{i['staff']}}">{{i['staff']}}</option>
+            {%endfor%}
+        </select></div></div>
+    </fieldset>
+    <fieldset id='pe-4'>
+        <legend>Professional Elective - IV</legend>
+        <div class="row">
+            <div class="col">
+        <label for="professional-elective-IV" class="p-3">Course :</label>
+        <select name="professional-elective-IV" id="professional-elective-IV" required>
+            <option value="none" selected disabled hidden> </option>
+            {%for i in pe4%}
+            <option value="{{i['course']}}">{{i['course']}}</option>
+            {%endfor%}
+        </select></div>
+        <div class="col">
+        <label for="staff-pe4" class="p-3">Staff :</label>
+        <select name="staff_pe4" id="staff_pe4" required>
+            <option value="none" selected disabled hidden> </option>
+            {%for i in staffs%}
+            <option value="{{i['staff']}}">{{i['staff']}}</option>
+            {%endfor%}
+        </select></div></div>
+    </fieldset>
+    <div class="text-center container" style="width: 500px !important;"><input class="btn btn-block btn-lg btn-outline-danger" type="submit" value="Generate"></div>
+    
+</form>
+
+<br><br><br>
+
+{% endblock %}
+
+
+{%block style%}
+{%if semester == 'even' and department == 'cse'%}
+<style>
+#oe-1,#pe-3,#oe-2,#pe-2,#op-1,#op-2,#pe-4,#y4{
+    display:none;
+}
+</style>
+{%endif%}
+{%if semester == 'even' and department == 'mech'%}
+<style>
+#oe-1,#pe-3,#oe-2,#pe-2,#op-1,#op-2,#pe-4,#y4{
+    display:none;
+}
+</style>
+{%endif%}
+{%if semester == 'odd' and department == 'cse'%}
+<style>
+#pe-1,#op-1,#op-2,#pe-4{
+    display:none;
+}
+</style>
+{%endif%}
+{%if semester == 'even' and department == 'ece'%}
+<style>
+#oe-1,#pe-3,#oe-2,#pe-1,#op-1,#op-2,#pe-4,#y4{
+    display:none;
+}
+</style>
+{%endif%}
+{%if semester == 'even' and department == 'civil'%}
+<style>
+#oe-1,#pe-3,#oe-2,#pe-1,#op-1,#op-2,#pe-4,#y4{
+    display:none;
+}
+</style>
+{%endif%}
+{%if semester == 'odd' and department == 'civil'%}
+<style>
+#oe-1,#oe-2,#pe-4,#pe-2{
+    display:none;
+}
+</style>
+{%endif%}
+{%if semester == 'odd' and department == 'ece'%}
+<style>
+#pe-2,#op-1,#op-2,#pe-4{
+    display:none;
+}
+</style>
+{%endif%}
+{%if semester == 'even' and department == 'eee'%}
+<style>
+#pe-3,#oe-1,#oe-2,#op-1,#op-2,#pe-4,#y4{
+    display:none;
+}
+</style>
+{%endif%}
+{%if semester == 'odd' and department == 'eee'%}
+<style>
+#pe-2,#pe-1,#op-1,#op-2{
+    display:none;
+}
+</style>
+{%endif%}
+{%if semester == 'odd' and department == 'mech'%}
+<style>
+#pe-1,#oe-1,#oe-2,#pe-4{
+    display:none;
+}
+</style>
+{%endif%}
+{%endblock%}
+
+

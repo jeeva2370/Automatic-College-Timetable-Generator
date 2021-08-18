@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block title %}Database{% endblock %}
+
+{% block content %}
+<p  class="text-center font-italic h1 " style="width: 1200px !important;">Database</p>
+<div class="container"style="width: 1200px !important;">
+<table class="table h6 ">
+    <tr>
+        
+        <th class="thead-dark">Year</th>
+        <th class="thead-dark">Semester</th>
+        <th class="thead-dark">Department</th>
+        <th class="thead-dark">Course</th>
+        <th class="thead-dark">Staffs</th>
+    </tr>
+    {% for data in acc %}
+        <tr>
+            
+            <td>{{data.year}}</td>
+            <td>{{data.semester}}</td>
+            <td>{{data.department}}</td>
+            <td>{{data.course}}</td>
+            <td>{{data.staff}}</td>
+            <td><a href="{{url_for('editsyllabus',id=data.id)}}">Edit</a></td>
+            
+        </tr>
+    {% endfor %}
+</table></div>
+{% endblock %}
